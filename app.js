@@ -1,7 +1,7 @@
 //imports 
 const express = require('express');
 const connectDB = require('./src/settings/connect');
-const {createUserController, getUserController} = require('./src/controllers/users/index')
+const {createUserController, getUserController, updateUserController} = require('./src/controllers/users/index')
 
 connectDB();
 
@@ -15,5 +15,5 @@ app.use(express.urlencoded({extended: true}));
 
 app.post("/api/user", createUserController);
 app.get("/api/user/:id", getUserController);
-
+app.put("/api/user/:id", updateUserController);
 app.listen(port)
