@@ -14,7 +14,7 @@ describe('Get User Controller', ()=> {
     describe('when sen a id',() =>{
         it('should be return an user', ()=>{  
             return User.create({
-                name: 'jose',
+                name: 'jose123',
                 email: 'kaioneguim@gmail.com',
                 password: 'ola123'
             })

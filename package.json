@@ -13,7 +13,7 @@
   "main": "app.js",
   "scripts": {
     "start": "npx nodemon ./src/bin/init.js",
-    "test": "jest"
+    "test": "cross-env NODE_ENV=testing jest"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@shelf/jest-mongodb": "^4.3.2",
+    "cross-env": "^7.0.3",
     "eslint": "^9.15.0",
     "globals": "^15.12.0"
   }
