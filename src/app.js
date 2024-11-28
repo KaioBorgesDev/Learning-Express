@@ -1,9 +1,9 @@
 //imports 
 const express = require('express');
-const connectDB = require('./src/settings/connect');
-const {createUserController, getUserController, updateUserController, deleteUserController, getAllUsersController} = require('./src/controllers/users/index')
-const createJwtController = require('./src/controllers/jwt/CreateJwt')
-const jwtCheck = require('./src/middleware/JwtCheck');
+const connectDB = require('./settings/connect');
+const {createUserController, getUserController, updateUserController, deleteUserController, getAllUsersController} = require('./controllers/users/index')
+const createJwtController = require('./controllers/jwt/CreateJwt')
+const jwtCheck = require('./middleware/JwtCheck');
 connectDB();
 
 const app = express();
@@ -19,5 +19,9 @@ app.get("/api/user/:id", getUserController);
 app.get("/api/user", getAllUsersController);
 app.put("/api/user/:id", jwtCheck, updateUserController);
 app.delete("/api/user/:id", deleteUserController);
-app.post('/api/jwt', createJwtController)
-app.listen(port)
+app.post('/api/jwt', createJwtController);
+
+app.listen(port) 
+
+
+module.exports = app;
