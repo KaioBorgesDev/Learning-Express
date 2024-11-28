@@ -8,28 +8,18 @@ const app = express();
 const port = 3000;
 const password = fs.readFileSync("./.pass", "utf-8");
 
+const User = require('./src/models/User');
 
 const uri = `mongodb+srv://granadatutoriaisborges:${password.trim()}@cluster0.b7pxl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const User = mongoose.model('User',{
-    name: String,
-    email: String,
-    password: String,
-})
+
 
 mongoose.connect(uri)
 .catch(console.error);
 
 const createUserController = async (req, res) => {
-    const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        }  
-    );
-
-    await user.save();
-    
-    res.send(user);
+    return User.create(req.body)
+    .then(user => res.status(201).json(user))
+    .catch(err => res.status(500).json({erro: [err.message]}));
 }
 
 //middlewares para poder ter acesso as requisicoes
