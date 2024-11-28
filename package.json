@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3"
   },
   "name": "nodejs",
   "version": "1.0.0",
