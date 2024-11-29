@@ -7,8 +7,6 @@ const jwtCheck = require('./middleware/JwtCheck');
 connectDB();
 
 const app = express();
-const port = 3000;
-
 
 //middlewares para poder ter acesso as requisicoes
 app.use(express.json());
@@ -21,7 +19,7 @@ app.put("/api/user/:id", jwtCheck, updateUserController);
 app.delete("/api/user/:id", deleteUserController);
 app.post('/api/jwt', createJwtController);
 
-app.listen(port) 
+
 
 
 module.exports = app;
